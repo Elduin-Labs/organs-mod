@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "organs",
+  "version": "${version}",
+  "name": "Organs",
+  "description": "You have a heart, lungs, a liver and a brain. Different damage injures different organs, and a failing organ changes how you play. They mend slowly with rest and food.",
+  "authors": [
+    "Elduin"
+  ],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.organs.OrgansMod"
+    ],
+    "client": [
+      "com.organs.client.OrgansClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.0",
+    "fabric-api": "*",
+    "minecraft": "~1.21.11",
+    "java": ">=21"
+  }
+}

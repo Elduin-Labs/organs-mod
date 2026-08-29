@@ -1,0 +1,16 @@
+{
+  "organ.organs.heart": "Heart",
+  "organ.organs.lungs": "Lungs",
+  "organ.organs.liver": "Liver",
+  "organ.organs.brain": "Brain",
+
+  "organs.status.impaired": "(impaired)",
+  "organs.status.critical": "(failing)",
+
+  "organs.warn.impaired": "Your %s is damaged.",
+  "organs.warn.critical": "Your %s is failing!",
+
+  "organs.command.header": "Organs — %s",
+  "organs.command.healed": "Organs restored.",
+  "organs.command.unknown": "Unknown organ: %s"
+}
