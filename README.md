@@ -1,5 +1,7 @@
 # Organs
 
+<img src="src/main/resources/assets/organs/icon.png" width="128" align="right" alt="">
+
 You have four organs. Different kinds of damage wreck different ones, and a damaged organ
 changes how you play until it heals.
 
