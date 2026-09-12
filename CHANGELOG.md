@@ -1,6 +1,7 @@
 ## 1.2.0
 
 - The hearts are gone. The organ bar takes their place, and it is always on screen
+- `/Elduin-Labs` opens the Elduin-Labs GitHub page
 
 ## 1.1.0
 

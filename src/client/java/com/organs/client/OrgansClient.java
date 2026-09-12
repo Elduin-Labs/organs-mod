@@ -3,6 +3,7 @@ package com.organs.client;
 import com.organs.OrganData;
 import com.organs.OrganSyncPayload;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.VanillaHudElements;
@@ -22,5 +23,8 @@ public class OrgansClient implements ClientModInitializer {
 
         // The hearts are gone. The organ bar sits where they used to be.
         HudElementRegistry.replaceElement(VanillaHudElements.HEALTH_BAR, hearts -> new OrganHudElement());
+
+        ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) ->
+                ElduinLabsCommand.register(dispatcher));
     }
 }

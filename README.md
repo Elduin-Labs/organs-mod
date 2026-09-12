@@ -32,6 +32,8 @@ crosses either.
 
 They mend slowly with rest and food. `/organs` shows the state of all four.
 
+`/Elduin-Labs` opens the Elduin-Labs GitHub page, where all of Elduin's mods live.
+
 ## Building
 
 ```bash
