@@ -1,3 +1,7 @@
+## 1.2.0
+
+- The hearts are gone. The organ bar takes their place, and it is always on screen
+
 ## 1.1.0
 
 - Organs mend slowly with rest and food

@@ -8,17 +8,17 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 
 /**
- * Four small bars sitting just above the health bar — heart, lungs, liver, brain, left to right.
- * They only show when something is actually wrong, so a healthy player's HUD stays vanilla.
+ * The organ bar. It takes the place of the vanilla hearts: four bars in the same row the health
+ * bar used to sit in — heart, lungs, liver, brain, left to right.
  */
 public class OrganHudElement implements HudElement {
-    private static final int BAR_WIDTH = 20;
-    private static final int BAR_HEIGHT = 3;
-    private static final int GAP = 2;
+    private static final int BAR_WIDTH = 18;
+    private static final int BAR_HEIGHT = 9;
+    private static final int GAP = 3;
     /** Matches the vanilla health bar's left edge. */
     private static final int LEFT_OFFSET = 91;
-    /** Sits one row above the health bar. */
-    private static final int BOTTOM_OFFSET = 49;
+    /** The vanilla health bar's row. */
+    private static final int BOTTOM_OFFSET = 39;
 
     private static final int BACKDROP = 0xB0000000;
     private static final int EMPTY = 0xFF3A3A3A;
@@ -41,10 +41,6 @@ public class OrganHudElement implements HudElement {
         }
 
         OrganData data = OrgansClient.current();
-        if (data.isFullyHealthy()) {
-            return; // Nothing wrong — don't clutter the screen.
-        }
-
         int x = context.getScaledWindowWidth() / 2 - LEFT_OFFSET;
         int y = context.getScaledWindowHeight() - BOTTOM_OFFSET;
 
@@ -54,12 +50,13 @@ public class OrganHudElement implements HudElement {
             int barX = x + i * (BAR_WIDTH + GAP);
 
             // A one-pixel dark border keeps the bars readable against bright terrain.
-            context.fill(barX - 1, y - 1, barX + BAR_WIDTH + 1, y + BAR_HEIGHT + 1, BACKDROP);
-            context.fill(barX, y, barX + BAR_WIDTH, y + BAR_HEIGHT, EMPTY);
+            context.fill(barX, y, barX + BAR_WIDTH, y + BAR_HEIGHT, BACKDROP);
+            context.fill(barX + 1, y + 1, barX + BAR_WIDTH - 1, y + BAR_HEIGHT - 1, EMPTY);
 
-            int filled = Math.round(value / (float) Organ.MAX * BAR_WIDTH);
+            int inner = BAR_WIDTH - 2;
+            int filled = Math.round(value / (float) Organ.MAX * inner);
             if (filled > 0) {
-                context.fill(barX, y, barX + filled, y + BAR_HEIGHT, color(i, value));
+                context.fill(barX + 1, y + 1, barX + 1 + filled, y + BAR_HEIGHT - 1, color(i, value));
             }
         }
     }
